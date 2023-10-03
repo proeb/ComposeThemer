@@ -16,12 +16,12 @@
 
 package com.proeb.composethemer.generator.util
 
-import com.proeb.composethemer.generator.model.CTDpSize
 import com.proeb.composethemer.generator.model.CTBorder
 import com.proeb.composethemer.generator.model.CTColor
 import com.proeb.composethemer.generator.model.CTColorType
 import com.proeb.composethemer.generator.model.CTCompositeColor
 import com.proeb.composethemer.generator.model.CTCompositeType
+import com.proeb.composethemer.generator.model.CTDpSize
 import com.proeb.composethemer.generator.model.CTPadding
 import com.proeb.composethemer.generator.model.CTProperty
 import com.proeb.composethemer.generator.model.CTPropertyType
@@ -43,9 +43,9 @@ public fun getReturnValue(property: CTProperty): String = when (CTPropertyType.f
 
 private fun getColorValue(color: CTColor) = if (!color.value.isNullOrEmpty()) {
     when (CTColorType.fromKey(color.colorType.orEmpty())) {
-        CTColorType.MaterialColor -> "MaterialTheme.colorScheme.${color.value.orEmpty()}${getAlphaValue(color)}${getCompositeColorValue(color)}"
-        CTColorType.MaterialContentColor -> "MaterialTheme.colorScheme.contentColorFor(MaterialTheme.colorScheme.${color.value.orEmpty()})${getAlphaValue(color)}${getCompositeColorValue(color)}"
-        CTColorType.HexColor -> "Color(${color.value.orEmpty()})${getAlphaValue(color)}"
+        CTColorType.MaterialColor -> "MaterialTheme.colorScheme.${color.value}${getAlphaValue(color)}${getCompositeColorValue(color)}"
+        CTColorType.MaterialContentColor -> "MaterialTheme.colorScheme.contentColorFor(MaterialTheme.colorScheme.${color.value})${getAlphaValue(color)}${getCompositeColorValue(color)}"
+        CTColorType.HexColor -> "Color(${color.value})${getAlphaValue(color)}"
         null -> ""
     }
 } else {
@@ -82,7 +82,7 @@ private fun getElevationValue(elevationLevel: Int) = when (elevationLevel) {
 }
 
 private fun getTextStyle(textStyle: String) = if (textStyle.isNotEmpty()) {
-    "MaterialTheme.typography.${textStyle.orEmpty()}"
+    "MaterialTheme.typography.$textStyle"
 } else {
     ""
 }

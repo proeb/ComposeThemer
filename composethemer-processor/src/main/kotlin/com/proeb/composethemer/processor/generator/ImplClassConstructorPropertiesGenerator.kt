@@ -16,10 +16,10 @@
 
 package com.proeb.composethemer.processor.generator
 
-import com.proeb.composethemer.processor.ksp.themeTypeName
-import com.proeb.composethemer.processor.model.ConstructorProperty
 import com.google.devtools.ksp.getDeclaredFunctions
 import com.google.devtools.ksp.symbol.KSClassDeclaration
+import com.proeb.composethemer.processor.ksp.themeTypeName
+import com.proeb.composethemer.processor.model.ConstructorProperty
 import com.squareup.kotlinpoet.KModifier
 import com.squareup.kotlinpoet.ParameterSpec
 import com.squareup.kotlinpoet.PropertySpec
@@ -28,7 +28,7 @@ import com.squareup.kotlinpoet.PropertySpec
  * Created by emre bahadir on 9/24/2023
  */
 internal class ImplClassConstructorPropertiesGenerator(
-    private val declaration: KSClassDeclaration
+    declaration: KSClassDeclaration
 ) {
 
     private val functions = declaration.getDeclaredFunctions()

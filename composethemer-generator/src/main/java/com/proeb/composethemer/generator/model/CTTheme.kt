@@ -16,7 +16,6 @@
 
 package com.proeb.composethemer.generator.model
 
-import com.proeb.composethemer.generator.model.CTProperty
 import org.gradle.internal.impldep.com.google.gson.annotations.SerializedName
 
 /**

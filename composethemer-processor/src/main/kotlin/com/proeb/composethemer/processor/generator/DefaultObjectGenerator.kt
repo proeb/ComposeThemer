@@ -16,10 +16,10 @@
 
 package com.proeb.composethemer.processor.generator
 
-import com.proeb.composethemer.processor.ksp.overrideAnnotations
-import com.proeb.composethemer.processor.ksp.overrideModifiers
 import com.google.devtools.ksp.symbol.ClassKind
 import com.google.devtools.ksp.symbol.KSClassDeclaration
+import com.proeb.composethemer.processor.ksp.overrideAnnotations
+import com.proeb.composethemer.processor.ksp.overrideModifiers
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.TypeSpec
 import com.squareup.kotlinpoet.ksp.toClassName

@@ -16,10 +16,10 @@
 
 package com.proeb.composethemer.processor
 
-import com.proeb.composethemer.core.annotation.ComponentTheme
 import com.google.devtools.ksp.processing.KSPLogger
 import com.google.devtools.ksp.symbol.ClassKind
 import com.google.devtools.ksp.symbol.KSClassDeclaration
+import com.proeb.composethemer.core.annotation.ComponentTheme
 
 /**
  * Created by emre bahadir on 9/24/2023
@@ -36,5 +36,4 @@ internal fun KSClassDeclaration.validateModifierContainsInterface(logger: KSPLog
     return true
 }
 
-public fun KSPLogger.anothers() {
-}
+public fun anothers(): Unit = Unit

@@ -16,11 +16,11 @@
 
 package com.proeb.composethemer.generator
 
+import com.google.gson.Gson
 import com.proeb.composethemer.generator.model.CTComponentTheme
 import com.proeb.composethemer.generator.model.CTTheme
 import com.proeb.composethemer.generator.util.CTDefaultImports
 import com.proeb.composethemer.generator.util.getReturnValue
-import com.google.gson.Gson
 import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.FileSpec

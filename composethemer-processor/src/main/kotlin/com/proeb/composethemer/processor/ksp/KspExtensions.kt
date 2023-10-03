@@ -16,8 +16,6 @@
 
 package com.proeb.composethemer.processor.ksp
 
-import com.proeb.composethemer.core.annotation.ComponentTheme
-import com.proeb.composethemer.processor.model.ConstructorProperty
 import com.google.devtools.ksp.symbol.ClassKind
 import com.google.devtools.ksp.symbol.KSAnnotation
 import com.google.devtools.ksp.symbol.KSClassDeclaration
@@ -25,6 +23,8 @@ import com.google.devtools.ksp.symbol.KSFunctionDeclaration
 import com.google.devtools.ksp.symbol.KSName
 import com.google.devtools.ksp.symbol.KSType
 import com.google.devtools.ksp.symbol.KSTypeAlias
+import com.proeb.composethemer.core.annotation.ComponentTheme
+import com.proeb.composethemer.processor.model.ConstructorProperty
 import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.CodeBlock
@@ -57,7 +57,7 @@ internal fun TypeSpec.Builder.overridePrimaryConstructor(
 
 internal val KSType.themeTypeName: TypeName
     get() = if (declaration.simpleName.asString() == "State") {
-        arguments.firstOrNull()?.toTypeName()?.let { it } ?: toTypeName()
+        arguments.firstOrNull()?.toTypeName() ?: toTypeName()
     } else {
         toTypeName()
     }

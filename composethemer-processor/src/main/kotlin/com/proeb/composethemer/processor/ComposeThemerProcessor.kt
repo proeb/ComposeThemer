@@ -16,8 +16,6 @@
 
 package com.proeb.composethemer.processor
 
-import com.proeb.composethemer.core.annotation.ComponentTheme
-import com.proeb.composethemer.processor.generator.ComponentThemeFileGenerator
 import com.google.devtools.ksp.processing.CodeGenerator
 import com.google.devtools.ksp.processing.Dependencies
 import com.google.devtools.ksp.processing.KSPLogger
@@ -26,6 +24,8 @@ import com.google.devtools.ksp.processing.SymbolProcessor
 import com.google.devtools.ksp.symbol.KSAnnotated
 import com.google.devtools.ksp.symbol.KSClassDeclaration
 import com.google.devtools.ksp.validate
+import com.proeb.composethemer.core.annotation.ComponentTheme
+import com.proeb.composethemer.processor.generator.ComponentThemeFileGenerator
 import com.squareup.kotlinpoet.FileSpec
 import com.squareup.kotlinpoet.ksp.writeTo
 

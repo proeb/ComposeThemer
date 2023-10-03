@@ -16,9 +16,9 @@
 
 package com.proeb.composethemer.processor.generator
 
-import com.proeb.composethemer.processor.ksp.themeTypeName
 import com.google.devtools.ksp.getDeclaredFunctions
 import com.google.devtools.ksp.symbol.KSClassDeclaration
+import com.proeb.composethemer.processor.ksp.themeTypeName
 import com.squareup.kotlinpoet.AnnotationSpec
 import com.squareup.kotlinpoet.ClassName
 import com.squareup.kotlinpoet.FunSpec
@@ -42,7 +42,7 @@ internal class DefaultObjectFunctionsGenerator(
             )
 
         var returnType = " return ${implClassName.simpleName}("
-        var returnValues = arrayListOf<Any>()
+        val returnValues = arrayListOf<Any>()
 
         declaration.getDeclaredFunctions().forEach { function ->
             function.returnType?.resolve()?.let { type ->

@@ -19,7 +19,6 @@ package com.proeb.composethemer.processor
 import com.google.devtools.ksp.processing.SymbolProcessor
 import com.google.devtools.ksp.processing.SymbolProcessorEnvironment
 import com.google.devtools.ksp.processing.SymbolProcessorProvider
-import com.proeb.composethemer.processor.ComposeThemerProcessor
 
 /**
  * Created by emre bahadir on 9/24/2023
