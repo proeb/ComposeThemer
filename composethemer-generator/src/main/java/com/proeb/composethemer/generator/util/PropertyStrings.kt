@@ -82,7 +82,9 @@ private fun getElevationValue(elevationLevel: Int) = when (elevationLevel) {
     else -> 0
 }
 
-private fun getTextStyle(textStyle: String) = if (textStyle.isNotEmpty()) {
+private fun getTextStyle(textStyle: String) = if (textStyle == "LocalTextStyle") {
+    "LocalTextStyle.current"
+} else if (textStyle.isNotEmpty()) {
     "MaterialTheme.typography.$textStyle"
 } else {
     ""
