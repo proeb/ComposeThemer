@@ -46,7 +46,7 @@ private fun getColorValue(color: CTColor) = if (!color.value.isNullOrEmpty()) {
         CTColorType.MaterialColor -> "MaterialTheme.colorScheme.${color.value}${getAlphaValue(color)}${getCompositeColorValue(color)}"
         CTColorType.MaterialContentColor -> "MaterialTheme.colorScheme.contentColorFor(MaterialTheme.colorScheme.${color.value})${getAlphaValue(color)}${getCompositeColorValue(color)}"
         CTColorType.HexColor -> "Color(${color.value})${getAlphaValue(color)}"
-        CTColorType.LocalContentColor -> "LocalContentColor.current"
+        CTColorType.LocalContentColor -> "LocalContentColor.current${getAlphaValue(color)}${getCompositeColorValue(color)}"
         null -> ""
     }
 } else {
