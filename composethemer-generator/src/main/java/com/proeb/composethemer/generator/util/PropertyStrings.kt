@@ -75,7 +75,13 @@ private fun getCompositeColor(compositeColor: CTCompositeColor) = when (CTCompos
     null -> ""
 }
 
-private fun getApplyTonalElevation(tonalElevationColor: CTTonalElevationColor) = "MaterialTheme.colorScheme.applyTonalElevation(backgroundColor = ${getTonalElevationColor(tonalElevationColor)}, elevation = ${getElevationValue(tonalElevationColor.elevation ?: 0)}.dp)"
+private fun getApplyTonalElevation(tonalElevationColor: CTTonalElevationColor) = "${getTonalElevationIfStatement(tonalElevationColor)}{ " +
+        "MaterialTheme.colorScheme.surfaceColorAtElevation(${getElevationValue(tonalElevationColor.elevation ?: 0)}.dp) " +
+        "} else { " +
+        "${getTonalElevationColor(tonalElevationColor)} " +
+        "}"
+
+private fun getTonalElevationIfStatement(tonalElevationColor: CTTonalElevationColor) = "if (${getTonalElevationColor(tonalElevationColor)} == MaterialTheme.colorScheme.surface && LocalTonalElevationEnabled.current) "
 
 private fun getTonalElevationColor(tonalElevationColor: CTTonalElevationColor) = when (CTTonalElevationType.fromKey(tonalElevationColor.tonalElevationType.orEmpty())) {
     CTTonalElevationType.MaterialColor -> "MaterialTheme.colorScheme.${tonalElevationColor.backgroundColor.orEmpty()}"
