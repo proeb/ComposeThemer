@@ -25,6 +25,8 @@ import com.proeb.composethemer.generator.model.CTDpSize
 import com.proeb.composethemer.generator.model.CTPadding
 import com.proeb.composethemer.generator.model.CTProperty
 import com.proeb.composethemer.generator.model.CTPropertyType
+import com.proeb.composethemer.generator.model.CTTonalElevationColor
+import com.proeb.composethemer.generator.model.CTTonalElevationType
 import com.proeb.composethemer.generator.model.CTViewTheme
 
 /**
@@ -45,6 +47,7 @@ private fun getColorValue(color: CTColor) = if (!color.value.isNullOrEmpty()) {
     when (CTColorType.fromKey(color.colorType.orEmpty())) {
         CTColorType.MaterialColor -> "MaterialTheme.colorScheme.${color.value}${getAlphaValue(color)}${getCompositeColorValue(color)}"
         CTColorType.MaterialContentColor -> "MaterialTheme.colorScheme.contentColorFor(MaterialTheme.colorScheme.${color.value})${getAlphaValue(color)}${getCompositeColorValue(color)}"
+        CTColorType.MaterialApplyTonalElevation -> "${getApplyTonalElevation(color.tonalElevationColor ?: CTTonalElevationColor())}"
         CTColorType.HexColor -> "Color(${color.value})${getAlphaValue(color)}"
         CTColorType.LocalContentColor -> "LocalContentColor.current${getAlphaValue(color)}${getCompositeColorValue(color)}"
         null -> ""
@@ -68,7 +71,15 @@ private fun getCompositeColorValue(color: CTColor) = if (color.compositeColor !=
 private fun getCompositeColor(compositeColor: CTCompositeColor) = when (CTCompositeType.fromKey(compositeColor.compositeType.orEmpty())) {
     CTCompositeType.SurfaceColorAtElevation -> "MaterialTheme.colorScheme.surfaceColorAtElevation(${getElevationValue(compositeColor.elevation ?: 0)}.dp)"
     CTCompositeType.MaterialColor -> "MaterialTheme.colorScheme.${compositeColor.value.orEmpty()}"
-    CTCompositeType.HexColor -> "Color.${compositeColor.value.orEmpty()}"
+    CTCompositeType.HexColor -> "Color(${compositeColor.value.orEmpty()})"
+    null -> ""
+}
+
+private fun getApplyTonalElevation(tonalElevationColor: CTTonalElevationColor) = "MaterialTheme.colorScheme.applyTonalElevation(backgroundColor = ${getTonalElevationColor(tonalElevationColor)}, elevation = ${getElevationValue(tonalElevationColor.elevation ?: 0)}.dp)"
+
+private fun getTonalElevationColor(tonalElevationColor: CTTonalElevationColor) = when (CTTonalElevationType.fromKey(tonalElevationColor.tonalElevationType.orEmpty())) {
+    CTTonalElevationType.MaterialColor -> "MaterialTheme.colorScheme.${tonalElevationColor.backgroundColor.orEmpty()}"
+    CTTonalElevationType.HexColor -> "Color(${tonalElevationColor.backgroundColor.orEmpty()})"
     null -> ""
 }
 

@@ -22,6 +22,7 @@ package com.proeb.composethemer.generator.model
 public enum class CTColorType(public val key: String) {
     MaterialColor("MaterialColor"),
     MaterialContentColor("MaterialContentColor"),
+    MaterialApplyTonalElevation("MaterialApplyTonalElevation"),
     HexColor("HexColor"),
     LocalContentColor("LocalContentColor");
 

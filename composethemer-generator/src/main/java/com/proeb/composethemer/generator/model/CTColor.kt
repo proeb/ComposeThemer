@@ -32,5 +32,8 @@ public data class CTColor(
     val alpha: Float? = null,
 
     @SerializedName("compositeColor")
-    val compositeColor: CTCompositeColor? = null
+    val compositeColor: CTCompositeColor? = null,
+
+    @SerializedName("tonalElevationColor")
+    val tonalElevationColor: CTTonalElevationColor? = null
 )
