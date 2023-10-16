@@ -28,6 +28,7 @@ public object CTDefaultImports {
         Pair("androidx.compose.material3", "contentColorFor"),
         Pair("androidx.compose.material3", "LocalContentColor"),
         Pair("androidx.compose.material3", "LocalTextStyle"),
+        Pair("androidx.compose.material3", "LocalTonalElevationEnabled"),
         Pair("androidx.compose.ui.graphics", "Color"),
         Pair("androidx.compose.ui.graphics", "compositeOver"),
         Pair("androidx.compose.ui.unit", "DpSize"),
